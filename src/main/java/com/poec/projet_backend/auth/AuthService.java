@@ -1,9 +1,9 @@
 package com.poec.projet_backend.auth;
 
 import com.poec.projet_backend.exceptions.UsernameAlreadyTakenException;
-import com.poec.projet_backend.user_app.Role;
-import com.poec.projet_backend.user_app.UserApp;
-import com.poec.projet_backend.user_app.UserAppRepository;
+import com.poec.projet_backend.domains.login.Role;
+import com.poec.projet_backend.domains.login.Login;
+import com.poec.projet_backend.domains.login.LoginRepository;
 import com.poec.projet_backend.util.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +21,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final UserAppRepository repository;
+    private final LoginRepository repository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
@@ -29,9 +29,7 @@ public class AuthService {
     public Map<String, String> register(RegisterRequest request, HttpServletRequest httpRequest) throws UsernameAlreadyTakenException {
 
         if (!repository.findByEmail(request.getEmail()).isPresent()) {
-            var user = UserApp.builder()
-                    .firstname(request.getFirstname())
-                    .lastname(request.getLastname())
+            var user = Login.builder()
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
                     .role("ROLE_" + Role.USER)
@@ -68,7 +66,7 @@ public class AuthService {
 
             /* Si tout va bien et que les informations sont OK, on peut récupérer l'utilisateur */
             /* La méthode findByEmail retourne un type Optionnel. Il faut donc ajouter une gestion d'exception avec "orElseThrow" */
-            UserApp user = repository.findByEmail(request.getEmail())
+            Login user = repository.findByEmail(request.getEmail())
                     .orElseThrow(() -> new UsernameNotFoundException("User not found in DB"));
 
             /* On extrait le rôle de l'utilisateur */

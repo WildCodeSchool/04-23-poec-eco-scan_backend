@@ -1,4 +1,4 @@
-package com.poec.projet_backend.user_app;
+package com.poec.projet_backend.domains.login;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -15,21 +15,21 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
-public class UserAppController {
+public class LoginController {
 
-    private final UserAppRepository userAppRepository;
+    private final LoginRepository loginRepository;
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<UserApp> getUserByEmail(@PathVariable String email, HttpServletRequest request) throws AccessDeniedException {
+    public ResponseEntity<Login> getUserByEmail(@PathVariable String email, HttpServletRequest request) throws AccessDeniedException {
         String username  = SecurityContextHolder.getContext().getAuthentication().getName();
         String roles  = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
 
         if (username.equals(email) || roles.equals("[ROLE_ADMIN]")) {
-            return ResponseEntity.ok(userAppRepository.findByEmail(email)
+            return ResponseEntity.ok(loginRepository.findByEmail(email)
                     .orElseThrow(() -> new RuntimeException("email " + email +" not found"))
             );
         } else {
-            throw new AccessDeniedException("UserApp does not have the correct rights to access to this resource");
+            throw new AccessDeniedException("Login does not have the correct rights to access to this resource");
         }
 
 
@@ -37,13 +37,13 @@ public class UserAppController {
     }
 
     @GetMapping("/all")
-    public List<UserApp> getAll(HttpServletRequest request) throws AccessDeniedException {
+    public List<Login> getAll(HttpServletRequest request) throws AccessDeniedException {
         String roles  = SecurityContextHolder.getContext().getAuthentication().getAuthorities().toString();
         System.out.println(roles);
         if(roles.equals("[ROLE_ADMIN]")) {
-            return userAppRepository.findAll();
+            return loginRepository.findAll();
         } else {
-            throw new AccessDeniedException("UserApp does not have the correct rights to access to this resource");
+            throw new AccessDeniedException("Login does not have the correct rights to access to this resource");
 
         }
     }
