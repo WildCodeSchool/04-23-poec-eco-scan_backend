@@ -9,7 +9,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.awt.image.BufferedImage;
 
 @Data
 @Entity
@@ -23,5 +22,5 @@ public class Brand {
     private Long id;
 
     private String title;
-    private BufferedImage logo;
+    private String logo;
 }
