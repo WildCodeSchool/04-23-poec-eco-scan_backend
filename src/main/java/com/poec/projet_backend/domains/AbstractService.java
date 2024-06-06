@@ -11,6 +11,7 @@ public abstract class AbstractService<T, Long> {
 
     protected JpaRepository<T, Long> repository;
 
+
     public AbstractService(JpaRepository<T, Long> repository) {
         this.repository = repository;
     }

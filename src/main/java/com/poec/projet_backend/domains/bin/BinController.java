@@ -1,4 +1,4 @@
-package com.poec.projet_backend.domains.userImpl;
+package com.poec.projet_backend.domains.bin;
 
 import com.poec.projet_backend.domains.AbstractController;
 import lombok.RequiredArgsConstructor;
@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/bin")
 @RequiredArgsConstructor
-public class UserImplController extends AbstractController<UserImpl> {
-
+public class BinController extends AbstractController<Bin> {
 
     @Autowired
-    private UserImplService userService;
+    private BinService binService;
 }

@@ -1,4 +1,4 @@
-package com.poec.projet_backend.domains.userImpl;
+package com.poec.projet_backend.domains.rubbish;
 
 import com.poec.projet_backend.domains.AbstractController;
 import lombok.RequiredArgsConstructor;
@@ -7,11 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/rubbish")
 @RequiredArgsConstructor
-public class UserImplController extends AbstractController<UserImpl> {
-
+public class RubbishController extends AbstractController<Rubbish> {
 
     @Autowired
-    private UserImplService userService;
+    private RubbishService rubbishService;
 }
