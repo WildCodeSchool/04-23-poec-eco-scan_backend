@@ -11,15 +11,15 @@ public class UserImplService extends AbstractService<UserImpl, Long> {
         super(repository);
     }
 
+
     @Override
     public UserImpl update(UserImpl entity, Long id) {
         UserImpl foundUser = getById(id);
-        foundUser.setEmail(entity.getEmail());
         foundUser.setUsername(entity.getUsername());
+        foundUser.setFirstname(entity.getFirstname());
         foundUser.setLastname(entity.getLastname());
-        foundUser.setPseudo(entity.getPseudo());
-        foundUser.setPoint(entity.getPoint());
-
+        foundUser.setEmail(entity.getEmail());
+        foundUser.setPoints(entity.getPoints());
         return repository.save(foundUser);
     }
 }
