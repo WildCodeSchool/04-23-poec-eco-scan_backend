@@ -1,13 +1,14 @@
 package com.poec.projet_backend.domains.brand;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.poec.projet_backend.domains.promos.Promos;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 
 @Data
@@ -23,4 +24,8 @@ public class Brand {
 
     private String title;
     private String logo;
+
+    @OneToMany(mappedBy = "brand", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("brand")
+    private List<Promos> promos;
 }
