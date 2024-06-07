@@ -1,5 +1,7 @@
 package com.poec.projet_backend.domains.userImpl;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.poec.projet_backend.domains.staged.Staged;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,4 +24,9 @@ public class UserImpl {
     private String pseudo;
     private String email;
     private int point;
+
+    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE , CascadeType.REMOVE, CascadeType.DETACH })
+    @JoinColumn(name = "staged_id")
+    @JsonIgnoreProperties("user_id")
+    private Staged staged;
 }

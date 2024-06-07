@@ -1,6 +1,7 @@
 package com.poec.projet_backend.domains.userImpl;
 
 import com.poec.projet_backend.domains.AbstractService;
+import com.poec.projet_backend.domains.staged.Staged;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,14 @@ public class UserImplService extends AbstractService<UserImpl, Long> {
         foundUser.setPoint(entity.getPoint());
 
         return repository.save(foundUser);
+    }
+
+    @Override
+    public UserImpl add(UserImpl entity) {
+        if (entity.getStaged() == null) {
+            Staged staged = new Staged();
+            entity.setStaged(staged);
+        }
+        return repository.save(entity);
     }
 }
