@@ -2,7 +2,6 @@ package com.poec.projet_backend.domains.type;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.poec.projet_backend.domains.bin.Bin;
-import com.poec.projet_backend.domains.rubbish.Rubbish;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,10 +26,6 @@ public class Type {
     private String pictogram;
     private int points;
     private String description;
-
-    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("type")
-    private List<Rubbish> rubbishes = new ArrayList<>();
 
     @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("type")

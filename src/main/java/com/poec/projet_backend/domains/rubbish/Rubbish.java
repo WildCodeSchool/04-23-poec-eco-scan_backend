@@ -1,7 +1,7 @@
 package com.poec.projet_backend.domains.rubbish;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.poec.projet_backend.domains.staged.Staged;
+import com.poec.projet_backend.domains.deposit.Deposit;
 import com.poec.projet_backend.domains.type.Type;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,10 @@ public class Rubbish {
     private boolean isDepot = false;
 
     @ManyToOne
-    @JsonIgnoreProperties("rubbishes")
+    @JsonIgnoreProperties("rubbish")
     private Type type;
 
+    @OneToOne
+    @JsonIgnoreProperties("rubbish")
+    private Deposit deposit;
 }
