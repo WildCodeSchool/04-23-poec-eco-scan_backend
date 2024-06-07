@@ -1,7 +1,7 @@
 package com.poec.projet_backend.domains.type;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.poec.projet_backend.domains.rubbish.Rubbish;
+import com.poec.projet_backend.domains.bin.Bin;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -29,10 +29,6 @@ public class Type {
 
     @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("type")
-    private List<Rubbish> rubbishes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("type")
-    private List<Rubbish> bins = new ArrayList<>();
+    private List<Bin> bins = new ArrayList<>();
 
 }

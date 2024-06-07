@@ -1,6 +1,7 @@
 package com.poec.projet_backend.domains.userImpl;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.poec.projet_backend.domains.deposit.Deposit;
 import com.poec.projet_backend.domains.userPromos.UserPromos;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,7 +30,10 @@ public class UserImpl {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")
-//    @JoinColumn(name = "userPromo_id")
     private List<UserPromos> userPromos;
 
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("user")
+    private List<Deposit> deposits;
 }
