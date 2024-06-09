@@ -14,4 +14,6 @@ public class UserImplController extends AbstractController<UserImpl> {
 
     @Autowired
     private UserImplService userService;
+
+
 }

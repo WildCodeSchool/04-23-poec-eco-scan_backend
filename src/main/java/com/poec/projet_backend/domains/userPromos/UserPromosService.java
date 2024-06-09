@@ -12,6 +12,7 @@ public class UserPromosService extends AbstractService<UserPromos, Long> {
         super(repository);
     }
 
+    
     @Override
     public UserPromos update(UserPromos entity, Long id) {
         UserPromos foundUserPromo = getById(id);

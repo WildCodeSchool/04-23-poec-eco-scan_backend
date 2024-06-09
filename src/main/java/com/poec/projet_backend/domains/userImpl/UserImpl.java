@@ -2,6 +2,7 @@ package com.poec.projet_backend.domains.userImpl;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.poec.projet_backend.domains.deposit.Deposit;
+import com.poec.projet_backend.domains.login.Login;
 import com.poec.projet_backend.domains.staged.Staged;
 import com.poec.projet_backend.domains.userPromos.UserPromos;
 import jakarta.persistence.*;
@@ -29,6 +30,10 @@ public class UserImpl {
     private String email;
     private int points;
 
+    public String toString() {
+        return getUsername() + " " + getFirstname() + " " + getLastname() + " " + getEmail() + " " + getPoints();
+    };
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")
     private List<UserPromos> userPromos;
@@ -42,5 +47,6 @@ public class UserImpl {
     @JoinColumn(name = "staged_id")
     @JsonIgnoreProperties("user_id")
     private Staged staged;
+
 
 }
