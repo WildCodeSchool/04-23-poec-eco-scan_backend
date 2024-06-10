@@ -1,5 +1,8 @@
 package com.poec.projet_backend.auth;
 
+import com.poec.projet_backend.domains.staged.Staged;
+import com.poec.projet_backend.domains.userImpl.UserImpl;
+import com.poec.projet_backend.domains.userImpl.UserImplRepository;
 import com.poec.projet_backend.exceptions.UsernameAlreadyTakenException;
 import com.poec.projet_backend.domains.login.Role;
 import com.poec.projet_backend.domains.login.Login;
@@ -21,28 +24,43 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final LoginRepository repository;
+    private final LoginRepository loginRepository;
+    private final UserImplRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
     public Map<String, String> register(RegisterRequest request, HttpServletRequest httpRequest) throws UsernameAlreadyTakenException {
+        System.out.println(request.toString());
 
-        if (!repository.findByEmail(request.getEmail()).isPresent()) {
-            var user = Login.builder()
+        if (loginRepository.findByEmail(request.getEmail()).isEmpty()) {
+            var login = Login.builder()
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
                     .role("ROLE_" + Role.USER)
                     .build();
 
-            repository.save(user);
+            loginRepository.save(login);
+
+            Staged staged = new Staged();
+
+            var user = UserImpl.builder()
+                    .email(request.getEmail())
+                    .username(request.getUsername())
+                    .lastname(request.getLastname())
+                    .firstname(request.getFirstname())
+                    .points(50)
+                    .staged(staged)
+                    .build();
+
+            userRepository.save(user);
 
             Map<String, String> body = new HashMap<>();
-            body.put("message", "Account successfully created as user");
+            body.put("message", "Bienvenue sur notre application");
             return body;
 
         } else {
-            throw new UsernameAlreadyTakenException("Username already taken");
+            throw new UsernameAlreadyTakenException("L'email éxiste déjà");
         }
 
     }
@@ -66,7 +84,7 @@ public class AuthService {
 
             /* Si tout va bien et que les informations sont OK, on peut récupérer l'utilisateur */
             /* La méthode findByEmail retourne un type Optionnel. Il faut donc ajouter une gestion d'exception avec "orElseThrow" */
-            Login user = repository.findByEmail(request.getEmail())
+            Login user = loginRepository.findByEmail(request.getEmail())
                     .orElseThrow(() -> new UsernameNotFoundException("User not found in DB"));
 
             /* On extrait le rôle de l'utilisateur */
@@ -77,11 +95,11 @@ public class AuthService {
             String jwtToken = jwtService.generateToken(new HashMap<>(extraClaims), user);
             return AuthResponse.builder()
                     .token(jwtToken)
-                    .message("Logged In")
+                    .message("Salut le bouffeur de graines!")
                     .build();
 
         } catch (BadCredentialsException ex) {
-            throw new BadCredentialsException("Bad credentials");
+            throw new BadCredentialsException("Identifiants incorrects");
         }
 
     }

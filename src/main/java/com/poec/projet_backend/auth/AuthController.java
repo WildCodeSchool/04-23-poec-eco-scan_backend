@@ -24,6 +24,7 @@ public class AuthController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticate(@RequestBody AuthRequest request, HttpServletRequest httpRequest) {
+        System.out.println("YOOOOO :" + request.toString());
     AuthResponse authenticationResponse = service.authenticate(request, httpRequest);
     return ResponseEntity.ok(authenticationResponse);
 
