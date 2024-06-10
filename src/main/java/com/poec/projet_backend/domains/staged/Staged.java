@@ -26,7 +26,7 @@ public class Staged {
     @JsonIgnoreProperties("staged")
     private UserImpl user_id;
 
-    @OneToMany
+    @OneToMany(mappedBy = "staged", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("staged")
     private List<Rubbish> rubbishes = new ArrayList<>();
 }
