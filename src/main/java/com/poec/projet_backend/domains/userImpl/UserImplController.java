@@ -21,8 +21,6 @@ public class UserImplController extends AbstractController<UserImpl> {
     @Autowired
     private UserImplService userService;
 
-<<<<<<< Updated upstream
-=======
     @GetMapping("/get/email/{email}")
     public ResponseEntity<UserImpl> getById(@PathVariable String email) {
         List<UserImpl> users = userService.getAll();
@@ -33,6 +31,4 @@ public class UserImplController extends AbstractController<UserImpl> {
         }
         return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     }
->>>>>>> Stashed changes
-
 }
