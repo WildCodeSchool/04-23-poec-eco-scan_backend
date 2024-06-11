@@ -26,11 +26,6 @@ public class Rubbish {
     @JsonIgnoreProperties("rubbish")
     private Type type;
 
-    @ManyToOne
-    @JsonIgnoreProperties("rubbishes")
-    private Staged staged;
 
-    @OneToOne
-    @JsonIgnoreProperties("rubbish")
-    private Deposit deposit;
+
 }

@@ -1,5 +1,7 @@
 USE poec_bdx_jwt;
 
+INSERT INTO staged (id) VALUES (1);
+INSERT INTO staged (id) VALUES (2);
 
 INSERT INTO user (points, email, firstname, lastname, username) VALUES (700, "admin@admin.com", "admin", "admin", "admin");
 INSERT INTO user (points, email, firstname, lastname, username) VALUES (1234, "user1@user1.com", "user", "user", "user");
@@ -50,31 +52,31 @@ INSERT INTO bin (type_id, bin_name, localisation) VALUES (7, "Free Telephones", 
 
 
 
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 1);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 1);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 1);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 2);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 2);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 3);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 3);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 4);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 5);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 6);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 2);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 2);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 2);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 3);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 2);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (false, null, 4);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (true, null, 7);
-INSERT INTO rubbish (is_depot, deposit_id, type_id) VALUES (true, null, 7);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 5);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 6);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4);
+INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
+INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
 
 
+INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (4, 1);
+INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (5, 1);
 
 INSERT INTO deposit (bin_id, rubbish_id, user_id, scan_data) VALUES (1, 1, 2, "{id: 1}");
 INSERT INTO deposit (bin_id, rubbish_id, user_id, scan_data) VALUES (1, 2, 2, "{id: 2}");
-UPDATE rubbish SET deposit_id = 1 WHERE id = 1;
-UPDATE rubbish SET deposit_id = 2 WHERE id = 2;
 
 
 
