@@ -68,8 +68,8 @@ INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
 INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
 INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
 INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4);
-INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
-INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
+--INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
+--INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
 
 
 
