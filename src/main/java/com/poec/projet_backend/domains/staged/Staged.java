@@ -28,5 +28,5 @@ public class Staged {
 
     @OneToMany
     @JsonIgnoreProperties("staged")
-    private List<Rubbish> rubbishes = new ArrayList<>();
+    private List<Rubbish> rubbish = new ArrayList<>();
 }
