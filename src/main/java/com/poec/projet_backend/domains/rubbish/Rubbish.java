@@ -2,7 +2,6 @@ package com.poec.projet_backend.domains.rubbish;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.poec.projet_backend.domains.deposit.Deposit;
 import com.poec.projet_backend.domains.type.Type;
 import com.poec.projet_backend.domains.type.TypeDTO;
 import com.poec.projet_backend.domains.type.TypeMapper;
@@ -38,8 +37,4 @@ public class Rubbish {
             throw new RuntimeException(e);
         }
     }
-
-    @OneToOne
-    @JsonIgnoreProperties("rubbish")
-    private Deposit deposit;
 }
