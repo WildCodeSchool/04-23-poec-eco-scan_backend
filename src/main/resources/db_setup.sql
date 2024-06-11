@@ -3,8 +3,8 @@ USE poec_bdx_jwt;
 INSERT INTO staged (id) VALUES (1);
 INSERT INTO staged (id) VALUES (2);
 
-INSERT INTO user (points, email, firstname, lastname, username) VALUES (700, "admin@admin.com", "admin", "admin", "admin");
-INSERT INTO user (points, email, firstname, lastname, username) VALUES (1234, "user1@user1.com", "user", "user", "user");
+INSERT INTO user ( points, email, firstname, lastname, username) VALUES (700, "admin@admin.com", "admin", "admin", "admin");
+INSERT INTO user (staged_id, points, email, firstname, lastname, username) VALUES (1, 1234, "user1@user1.com", "user", "user", "user");
 
 
 INSERT INTO brand (logo, title) values ("src/main/static/images/logo-carrefour.png", "Carrefour");
