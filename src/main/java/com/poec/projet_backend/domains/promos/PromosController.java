@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PromosController extends AbstractController<Promos> {
 
+    @Autowired
     private PromosService promosService;
 
     @GetMapping("/get/percentOff")
