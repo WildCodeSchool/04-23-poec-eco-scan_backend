@@ -7,9 +7,9 @@ INSERT INTO user (staged_id, points, email, firstname, lastname, username) VALUE
 INSERT INTO user (staged_id, points, email, firstname, lastname, username) VALUES (2, 1234, "user1@user1.com", "user", "user", "user");
 
 
-INSERT INTO brand (logo, title) values ("src/main/static/images/logo-carrefour.png", "Carrefour");
-INSERT INTO brand (logo, title) values ("src/main/static/images/logo-monoprix.png", "Monoprix");
-INSERT INTO brand (logo, title) values ("src/main/static/images/logo-free.png", "Free");
+INSERT INTO brand (logo, title) values ("static/images/logo/carrefour.png", "Carrefour");
+INSERT INTO brand (logo, title) values ("static/images/logo/monoprix.png", "Monoprix");
+INSERT INTO brand (logo, title) values ("static/images/logo/free.png", "Free");
 
 
 
@@ -25,13 +25,12 @@ INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, c
 
 
 
-INSERT INTO type (points, description, name, pictogram) VALUES ("100", "Depot de Verre", "Verre", "static/images/un-verre.png");
-INSERT INTO type (points, description, name, pictogram) VALUES ("50", "Depot de Parfum", "Parfum", "static/images/parfum.svg");
-INSERT INTO type (points, description, name, pictogram) VALUES ("1000", "Depot de iPhone", "iPhone", "static/images/iPhone.png");
-INSERT INTO type (points, description, name, pictogram) VALUES ("30", "Cartouche d'encre", "Encre", "static/images/encre.svg");
-INSERT INTO type (points, description, name, pictogram) VALUES ("60", "Depot de Cosmetic", "Cosmetic", "static/images/cosmetic.svg");
-INSERT INTO type (points, description, name, pictogram) VALUES ("90", "Depot de Batterie", "Batterie", "static/images/batterie.svg");
---INSERT INTO type (points, description, name, pictogram) VALUES ("1000", "Depot de telephone", "Telephone", "src/main/static/images/Telephone-picto.png");
+INSERT INTO type (points, description, name, pictogram) VALUES ("100", "Depot de Verre", "Verre", "static/images/waste/un-verre.png");
+INSERT INTO type (points, description, name, pictogram) VALUES ("50", "Depot de Parfum", "Parfum", "static/images/waste/parfum.svg");
+INSERT INTO type (points, description, name, pictogram) VALUES ("1000", "Depot de iPhone", "iPhone", "static/images/waste/iPhone.png");
+INSERT INTO type (points, description, name, pictogram) VALUES ("30", "Cartouche d'encre", "Encre", "static/images/waste/encre.svg");
+INSERT INTO type (points, description, name, pictogram) VALUES ("60", "Depot de Cosmetic", "Cosmetic", "static/images/waste/cosmetic.svg");
+INSERT INTO type (points, description, name, pictogram) VALUES ("90", "Depot de Batterie", "Batterie", "static/images/waste/batterie.svg");
 
 
 

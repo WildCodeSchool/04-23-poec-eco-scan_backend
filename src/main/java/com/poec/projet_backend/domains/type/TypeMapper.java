@@ -30,7 +30,7 @@ public class TypeMapper {
         );
     }
 
-    public TypeDTO typeToTypeDTP(Type inType) {
+    public TypeDTO typeToTypeDTO(Type inType) {
         try {
             return new TypeDTO(
                     inType.getId(),
@@ -45,20 +45,11 @@ public class TypeMapper {
         }
     }
 
-    public List<TypeDTO> typeToTypeDTP(List<Type> inTypes) {
+    public List<TypeDTO> typeToTypeDTO(List<Type> inTypes) {
         List<TypeDTO> typeDTOs = new ArrayList<>();
         try {
             for (Type type : inTypes) {
-                typeDTOs.add(
-                        new TypeDTO(
-                                type.getId(),
-                                type.getName(),
-                                imgService.loadImageAsBase64(type.getPictogram()),
-                                type.getPoints(),
-                                type.getDescription(),
-                                type.getBins()
-                        )
-                );
+                typeDTOs.add(this.typeToTypeDTO(type));
             }
             return typeDTOs;
         } catch (Exception e) {
