@@ -2,7 +2,6 @@ package com.poec.projet_backend.domains.staged;
 
 import com.poec.projet_backend.domains.AbstractController;
 import com.poec.projet_backend.domains.rubbish.Rubbish;
-import com.poec.projet_backend.domains.rubbish.RubbishService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
