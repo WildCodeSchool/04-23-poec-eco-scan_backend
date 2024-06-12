@@ -9,4 +9,6 @@ import java.util.List;
 public interface PromosRepository extends JpaRepository<Promos, Long> {
     @Query("SELECT p FROM Promos p ORDER BY p.percentOff DESC")
     List<Promos> sortPromosByPercentOff();
+    @Query("SELECT p FROM Promos p ORDER BY p.endDate ASC")
+    List<Promos> sortPromosByReleaseDate();
 }

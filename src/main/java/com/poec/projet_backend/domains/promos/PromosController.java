@@ -18,9 +18,15 @@ public class PromosController extends AbstractController<Promos> {
     @Autowired
     private PromosService promosService;
 
-    @GetMapping("/get/percentOff")
+    @GetMapping("/get/percent-off")
     public ResponseEntity<List<Promos>> getPromosOrderedByPercentOff() {
         List<Promos> promotions = promosService.sortByPercentOff();
+        return ResponseEntity.ok(promotions);
+    }
+
+    @GetMapping("/get/last-released")
+    public ResponseEntity<List<Promos>> getPromosOrderedByReleaseDate() {
+        List<Promos> promotions = promosService.sortByReleaseDate();
         return ResponseEntity.ok(promotions);
     }
 }
