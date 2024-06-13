@@ -35,4 +35,8 @@ public class PromosService extends AbstractService<Promos, Long> {
     public List<Promos> sortByPercentOff() {
         return promosRepository.sortPromosByPercentOff();
     }
+
+    public List<Promos> sortByReleaseDate() {
+        return promosRepository.sortPromosByReleaseDate();
+    }
 }
