@@ -51,6 +51,15 @@ INSERT INTO bin (type_id, bin_name, localisation) VALUES (3, "Free Telephones", 
 INSERT INTO bin (type_id, bin_name, localisation) VALUES (3, "Free Telephones", "44.843622, -0.571979");
 
 
+--wild code school bins
+INSERT INTO bin (type_id, bin_name, localisation) VALUES (1, null, "44.869335,-0.565646");
+INSERT INTO bin (type_id, bin_name, localisation) VALUES (2, null, "44.869335,-0.565646");
+INSERT INTO bin (type_id, bin_name, localisation) VALUES (2, null, "44.869335,-0.565646");
+INSERT INTO bin (type_id, bin_name, localisation) VALUES (4, null, "44.869335,-0.565646");
+INSERT INTO bin (type_id, bin_name, localisation) VALUES (5, null, "44.869335,-0.565646");
+--INSERT INTO bin (type_id, bin_name, localisation) VALUES (6, null, "44.869335,-0.565646");
+
+
 
 INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
 INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
