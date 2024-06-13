@@ -1,15 +1,19 @@
 package com.poec.projet_backend.domains.promos;
 
 import com.poec.projet_backend.domains.AbstractService;
-import com.poec.projet_backend.domains.brand.Brand;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class PromosService extends AbstractService<Promos, Long> {
 
-    public PromosService(JpaRepository<Promos, Long> repository) {
-        super(repository);
+    private final PromosRepository promosRepository;
+
+    @Autowired
+    public PromosService(PromosRepository promosRepository) {
+        super(promosRepository);
+        this.promosRepository = promosRepository;
     }
 
     @Override
@@ -26,5 +30,9 @@ public class PromosService extends AbstractService<Promos, Long> {
         foundPromo.setColor(entity.getColor());
 
         return repository.save(foundPromo);
+    }
+
+    public List<Promos> sortByPercentOff() {
+        return promosRepository.sortPromosByPercentOff();
     }
 }
