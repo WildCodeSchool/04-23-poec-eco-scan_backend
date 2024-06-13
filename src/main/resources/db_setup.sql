@@ -84,6 +84,6 @@ INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (3,2);
 INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (10,2);
 
 
-INSERT INTO user_promos (is_redeemed, promos_id, user_id) VALUES (false, 1, 2);
-INSERT INTO user_promos (is_redeemed, promos_id, user_id) VALUES (true, 2, 2);
-INSERT INTO user_promos (is_redeemed, promos_id, user_id) VALUES (false, 1, 2);
+INSERT INTO user_promos (is_redeemed, is_purchased, promos_id, user_id) VALUES (false, false, 1, 2);
+INSERT INTO user_promos (is_redeemed,  is_purchased,  promos_id, user_id) VALUES (true, false, 2, 2);
+INSERT INTO user_promos (is_redeemed, is_purchased, promos_id, user_id) VALUES (false, false, 1, 2);
