@@ -15,6 +15,8 @@ public class TypeController {
 
     @Autowired
     private TypeService typeService;
+
+    @Autowired
     private TypeMapper typeMapperService;
 
     @GetMapping("/get/all")
