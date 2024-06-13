@@ -22,6 +22,7 @@ public class UserPromos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private boolean isRedeemed;
+    private boolean isPurchased = false;
 
     @ManyToOne
     @JsonIgnoreProperties("userPromos")

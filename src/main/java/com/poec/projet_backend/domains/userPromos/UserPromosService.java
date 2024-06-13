@@ -50,6 +50,7 @@ public class UserPromosService extends AbstractService<UserPromos, Long> {
         userPromos.setUser(user);
         userPromos.setPromos(promo);
         userPromos.setRedeemed(false);
+        userPromos.setPurchased(true);
 
         userRepository.save(user);
         promosRepository.save(promo);
