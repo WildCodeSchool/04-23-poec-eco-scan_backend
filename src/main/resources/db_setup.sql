@@ -13,15 +13,16 @@ INSERT INTO brand (logo, title) values ("static/images/logo/free.png", "Free");
 
 
 
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 20, 10, 1, "2024-12-31", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 22, 100, 1, "2024-12-31", "2024-01-01", "FFFFFF", "A bottle of coke", "bisquits", "bisquits");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 27, 100, 1, "2024-12-31", "2024-01-01", "FFFFFF", "A paquet de cacahuète", "cacahuète", "cacahuète");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 15, 100, 2, "2024-12-31", "2024-01-01", "FFFFFF", "A bouteille de vin rouge", "Vin", "Vin");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 26, 100, 2, "2024-12-31", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 10, 100, 2, "2024-12-31", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 33, 100, 3, "2024-12-31", "2024-01-01", "FFFFFF", "A nouvelle telephone", "iPhone", "iPhine ");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 44, 100, 3, "2024-12-31", "2024-01-01", "FFFFFF", "6 mois de wifi", "wifi", "6 mois de wifi");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 55, 100, 3, "2024-12-31", "2024-01-01", "FFFFFF", "1 anne de Netflix", "Netflix", "Netflix");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 20, 100, 1, "2024-12-31", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 22, 100, 1, "2024-12-30", "2024-01-01", "FFFFFF", "A bottle of coke", "bisquits", "bisquits");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 27, 100, 1, "2024-12-29", "2024-01-01", "FFFFFF", "A paquet de cacahuète", "cacahuète", "cacahuète");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 15, 100, 2, "2024-12-28", "2024-01-01", "FFFFFF", "A bouteille de vin rouge", "Vin", "Vin");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 26, 100, 2, "2024-12-27", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 10, 100, 2, "2024-12-26", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 33, 100, 3, "2024-12-25", "2024-01-01", "FFFFFF", "A nouvelle telephone", "iPhone", "iPhine ");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 44, 100, 3, "2024-12-24", "2024-01-01", "FFFFFF", "6 mois de wifi", "wifi", "6 mois de wifi");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 55, 100, 3, "2024-12-23", "2024-01-01", "FFFFFF", "1 anne de Netflix", "Netflix", "Netflix");
+
 
 
 
