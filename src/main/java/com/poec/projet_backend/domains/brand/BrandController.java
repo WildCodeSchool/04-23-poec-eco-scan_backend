@@ -16,6 +16,7 @@ public class BrandController {
 
     @Autowired
     private BrandService brandService;
+    @Autowired
     private BrandMapper brandMapperService;
 
     @GetMapping("/get/all")
