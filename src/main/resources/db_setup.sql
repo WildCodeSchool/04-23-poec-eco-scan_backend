@@ -13,7 +13,7 @@ INSERT INTO brand (logo, title) values ("static/images/logo/free.png", "Free");
 
 
 
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 20, 100, 1, "2024-12-31", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
+INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 20, 10, 1, "2024-12-31", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
 INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 22, 100, 1, "2024-12-31", "2024-01-01", "FFFFFF", "A bottle of coke", "bisquits", "bisquits");
 INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 27, 100, 1, "2024-12-31", "2024-01-01", "FFFFFF", "A paquet de cacahuète", "cacahuète", "cacahuète");
 INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 15, 100, 2, "2024-12-31", "2024-01-01", "FFFFFF", "A bouteille de vin rouge", "Vin", "Vin");
