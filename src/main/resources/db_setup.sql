@@ -26,9 +26,9 @@ INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, c
 
 
 
-INSERT INTO type (points, description, name, pictogram) VALUES ("100", "Depot de Verre", "Verre", "static/images/waste/un-verre.png");
+INSERT INTO type (points, description, name, pictogram) VALUES ("100", "Depot de Verre", "Verre", "static/images/waste/un-verre.svg");
 INSERT INTO type (points, description, name, pictogram) VALUES ("50", "Depot de Parfum", "Parfum", "static/images/waste/parfum.svg");
-INSERT INTO type (points, description, name, pictogram) VALUES ("1000", "Depot de iPhone", "iPhone", "static/images/waste/iPhone.png");
+INSERT INTO type (points, description, name, pictogram) VALUES ("1000", "Depot de iPhone", "iPhone", "static/images/waste/iPhone.svg");
 INSERT INTO type (points, description, name, pictogram) VALUES ("30", "Cartouche d'encre", "Encre", "static/images/waste/encre.svg");
 INSERT INTO type (points, description, name, pictogram) VALUES ("60", "Depot de Cosmetic", "Cosmetic", "static/images/waste/cosmetic.svg");
 INSERT INTO type (points, description, name, pictogram) VALUES ("90", "Depot de Batterie", "Batterie", "static/images/waste/batterie.svg");
