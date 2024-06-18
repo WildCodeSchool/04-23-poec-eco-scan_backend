@@ -31,6 +31,12 @@ public class TypeController {
         return new ResponseEntity<>(typeMapperService.typeToTypeDTO(foundType), HttpStatus.OK);
     }
 
+    @GetMapping("/get/unique-types")
+    public ResponseEntity<List<String>> getUniqueTypeNames() {
+        List<String> uniqueNames = typeService.getUniqueNames();
+        return ResponseEntity.ok(uniqueNames);
+    }
+
     @PostMapping("/add")
     public ResponseEntity<Type> add(@RequestBody Type entity) {
         return new ResponseEntity<>(typeService.add(entity), HttpStatus.CREATED);
@@ -45,5 +51,6 @@ public class TypeController {
     public void delete(@PathVariable Long id) {
         typeService.delete(id);
     }
+
 
 }
