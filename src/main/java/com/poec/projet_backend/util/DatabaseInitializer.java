@@ -1,10 +1,14 @@
 package com.poec.projet_backend.util;
 
-import com.poec.projet_backend.user_app.Role;
-import com.poec.projet_backend.user_app.UserApp;
-import com.poec.projet_backend.user_app.UserAppRepository;
+import com.poec.projet_backend.domains.login.Role;
+import com.poec.projet_backend.domains.login.Login;
+import com.poec.projet_backend.domains.login.LoginRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -12,38 +16,48 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class DatabaseInitializer implements CommandLineRunner {
 
-    private final UserAppRepository userAppRepository;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
+    private final LoginRepository loginRepository;
     private final PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {
-        if(this.userAppRepository.findByEmail("admin@admin.com").isEmpty()) {
+        if(this.loginRepository.findByEmail("admin@admin.com").isEmpty()) {
             this.createAdmin();
             this.createUsers();
         }
+        executeSqlScript("db_setup.sql");
     }
 
+    private void executeSqlScript(String scriptPath) {
+        // Execute the SQL script
+        try {
+            ClassPathResource resource = new ClassPathResource(scriptPath);
+            ScriptUtils.executeSqlScript(jdbcTemplate.getDataSource().getConnection(), resource);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to execute SQL script: " + scriptPath, e);
+        }
+    }
+
+
     private void createAdmin() {
-        UserApp admin = UserApp.builder()
-                .firstname("admin")
-                .lastname("admin")
+        Login admin = Login.builder()
                 .email("admin@admin.com")
                 .password(passwordEncoder.encode("admin"))
                 .role("ROLE_" + Role.ADMIN)
                 .build();
 
-        this.userAppRepository.save(admin);
+        this.loginRepository.save(admin);
     }
 
     private void createUsers() {
-        UserApp user1 = UserApp.builder()
-                .firstname("user1")
-                .lastname("user1")
+        Login user1 = Login.builder()
                 .email("user1@user1.com")
                 .password(passwordEncoder.encode("user1"))
                 .role("ROLE_" + Role.USER)
                 .build();
 
-        this.userAppRepository.save(user1);
+        this.loginRepository.save(user1);
     }
 }

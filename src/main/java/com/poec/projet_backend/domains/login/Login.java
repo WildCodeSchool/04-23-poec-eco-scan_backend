@@ -1,4 +1,4 @@
-package com.poec.projet_backend.user_app;
+package com.poec.projet_backend.domains.login;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -18,19 +18,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user")
-public class UserApp implements UserDetails {
+@Table(name = "login")
+public class Login implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String firstname;
-    private String lastname;
     private String email;
+    private String role;
     @JsonIgnore
     private String password;
 
-    private String role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -61,4 +57,6 @@ public class UserApp implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+
 }
