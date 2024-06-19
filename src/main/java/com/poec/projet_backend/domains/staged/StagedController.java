@@ -25,5 +25,6 @@ public class StagedController extends AbstractController<Staged> {
             return ResponseEntity.ok(updatedStaged);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }    }
+        }
+    }
 }
