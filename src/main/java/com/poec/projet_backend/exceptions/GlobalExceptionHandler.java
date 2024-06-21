@@ -26,7 +26,7 @@ public class GlobalExceptionHandler {
     private ResponseEntity<Map<String, String>> handleException(Exception ex, HttpStatus status) {
         Map<String, String> response = new HashMap<>();
         String errorMessage = ex.getMessage();
-        response.put("Oups", errorMessage);
+        response.put("Error", errorMessage);
 
         return ResponseEntity.status(status)
                 .body(response);
@@ -59,6 +59,11 @@ public class GlobalExceptionHandler {
     }
 
 
+
+    @ExceptionHandler(MappingConversionException.class)
+    public ResponseEntity<Map<String, String>> handleMappingConversionException(MappingConversionException ex) {
+        return handleException(ex, HttpStatus.NOT_FOUND);
+    }
 
 
 }

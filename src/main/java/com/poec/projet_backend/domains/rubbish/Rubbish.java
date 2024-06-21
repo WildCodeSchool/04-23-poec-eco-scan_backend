@@ -2,9 +2,11 @@ package com.poec.projet_backend.domains.rubbish;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import com.poec.projet_backend.domains.type.Type;
 import com.poec.projet_backend.domains.type.TypeDTO;
 import com.poec.projet_backend.domains.type.TypeMapper;
+import com.poec.projet_backend.exceptions.MappingConversionException;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,7 +36,17 @@ public class Rubbish {
         try {
             return TypeMapper.toDTO(this.type);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new MappingConversionException("JsonGetter of Rubbish Type: " + e.getMessage());
         }
     }
+
+    @JsonSetter("type")
+    public void setType(TypeDTO inType){
+        try {
+            this.type = TypeMapper.fromDTO(inType);
+        } catch (IOException e) {
+            throw new MappingConversionException("JsonSetter of Rubbish Type:" + e.getMessage());
+        }
+    }
+
 }
