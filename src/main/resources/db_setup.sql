@@ -106,31 +106,31 @@ INSERT INTO bin (type_id, bin_name, localisation) VALUES (3, "Free Telephones", 
 --wild code school bins
 INSERT INTO bin (type_id, bin_name, localisation) VALUES (1, null, "44.869335,-0.565646");
 INSERT INTO bin (type_id, bin_name, localisation) VALUES (2, null, "44.869335,-0.565646");
-INSERT INTO bin (type_id, bin_name, localisation) VALUES (2, null, "44.869335,-0.565646");
+INSERT INTO bin (type_id, bin_name, localisation) VALUES (3, null, "44.869335,-0.565646");
 INSERT INTO bin (type_id, bin_name, localisation) VALUES (4, null, "44.869335,-0.565646");
 INSERT INTO bin (type_id, bin_name, localisation) VALUES (5, null, "44.869335,-0.565646");
 --INSERT INTO bin (type_id, bin_name, localisation) VALUES (6, null, "44.869335,-0.565646");
 
 
 
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 5);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 6);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4);
---INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
---INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1); --deposited 1
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1); --deposited 2
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1); --staged    3
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --staged    4
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --          5
+INSERT INTO rubbish (is_depot, type_id) VALUES (true, 3); --          6
+--INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3); --staged    7
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4); --          8
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 5); --staged    9
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 6); --staged   10
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --         11
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --         12
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --         13
+--INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3); --         14
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --         15
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4); --         16
+--INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);  --         17
+--INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);  --         18
 
 
 
@@ -139,7 +139,7 @@ INSERT INTO deposit (bin_id, rubbish_id, user_id, scan_data) VALUES (1, 2, 2, "{
 
 
 INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (4,2);
-INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (7,2);
+--INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (7,2);
 INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (9,2);
 INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (3,2);
 INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (10,2);

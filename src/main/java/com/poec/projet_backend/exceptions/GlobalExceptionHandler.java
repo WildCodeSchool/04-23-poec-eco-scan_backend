@@ -53,6 +53,18 @@ public class GlobalExceptionHandler {
         return handleException(ex, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(NotEnoughPointsExcept.class)
+    public ResponseEntity<Map<String,String>> handleNotEnoughPointsExcept(NotEnoughPointsExcept ex) {
+        return handleException(ex, HttpStatus.NOT_FOUND);
+    }
+
+
+
+    @ExceptionHandler(MappingConversionException.class)
+    public ResponseEntity<Map<String, String>> handleMappingConversionException(MappingConversionException ex) {
+        return handleException(ex, HttpStatus.NOT_FOUND);
+    }
+
 
 }
 
