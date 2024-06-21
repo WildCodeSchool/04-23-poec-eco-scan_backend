@@ -5,6 +5,7 @@ import com.poec.projet_backend.domains.promos.Promos;
 import com.poec.projet_backend.domains.promos.PromosRepository;
 import com.poec.projet_backend.domains.userImpl.UserImpl;
 import com.poec.projet_backend.domains.userImpl.UserImplRepository;
+import com.poec.projet_backend.exceptions.NotEnoughPointsExcept;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +37,7 @@ public class UserPromosService extends AbstractService<UserPromos, Long> {
                 .orElseThrow(() -> new RuntimeException("Promo not found"));
 
         if (user.getPoints() < promo.getPrice()) {
-            throw new RuntimeException("Not enough points");
+            throw new NotEnoughPointsExcept("Vous n'avez pas assez de point");
         }
 
         if (promo.getAmount() <= 0) {

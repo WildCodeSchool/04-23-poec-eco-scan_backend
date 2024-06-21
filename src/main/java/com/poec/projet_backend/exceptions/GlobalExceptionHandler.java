@@ -26,7 +26,7 @@ public class GlobalExceptionHandler {
     private ResponseEntity<Map<String, String>> handleException(Exception ex, HttpStatus status) {
         Map<String, String> response = new HashMap<>();
         String errorMessage = ex.getMessage();
-        response.put("Error", errorMessage);
+        response.put("Oups", errorMessage);
 
         return ResponseEntity.status(status)
                 .body(response);
@@ -52,6 +52,13 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, String>> handleAccessDeniedException(AccessDeniedException ex) {
         return handleException(ex, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(NotEnoughPointsExcept.class)
+    public ResponseEntity<Map<String,String>> handleNotEnoughPointsExcept(NotEnoughPointsExcept ex) {
+        return handleException(ex, HttpStatus.NOT_FOUND);
+    }
+
+
 
 
 }
