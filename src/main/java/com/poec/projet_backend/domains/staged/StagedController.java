@@ -27,4 +27,10 @@ public class StagedController extends AbstractController<Staged> {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+
+    @DeleteMapping("/{stagedId}/delete/rubbish/{rubbishId}")
+    public ResponseEntity<Void> removeRubbish(@PathVariable Long stagedId, @PathVariable Long rubbishId) {
+        stagedService.removeRubbishFromStaged(stagedId, rubbishId);
+        return ResponseEntity.noContent().build();
+    }
 }
