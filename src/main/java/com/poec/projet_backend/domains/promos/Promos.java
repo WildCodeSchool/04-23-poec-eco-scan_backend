@@ -52,10 +52,6 @@ public class Promos {
         }
     }
 
-    @OneToMany(mappedBy = "promos", cascade = CascadeType.REMOVE)
-    @JsonIgnore
-    private List<UserPromos> userPromos;
-
     @JsonSetter("brand")
     public void setBrand(BrandDTO brand) {
         try {
