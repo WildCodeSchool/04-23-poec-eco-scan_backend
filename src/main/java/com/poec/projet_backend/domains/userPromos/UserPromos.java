@@ -9,8 +9,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Entity
 @Builder
@@ -28,7 +26,7 @@ public class UserPromos {
     @JsonIgnoreProperties("userPromos")
     private UserImpl user;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JsonIgnoreProperties("userPromos")
     private Promos promos;
 }
