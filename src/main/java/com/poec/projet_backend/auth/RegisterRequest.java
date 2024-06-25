@@ -15,6 +15,7 @@ public class RegisterRequest {
     private String lastname;
     private String username;
     private int points;
+    private String imagePath;
     private String email;
     private String password;
     private String requiredRole;
