@@ -32,13 +32,15 @@ public class BrandController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Brand> add(@RequestBody Brand entity) {
-        return new ResponseEntity<>(brandService.add(entity), HttpStatus.CREATED);
+    public ResponseEntity<Brand> add(@RequestBody BrandDTO entity) {
+        Brand newBrand = brandMapperService.brandFromBrandDTO(entity);
+        return new ResponseEntity<>(brandService.add(newBrand), HttpStatus.CREATED);
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Brand> update(@RequestBody Brand entity, @PathVariable Long id) {
-        return new ResponseEntity<>(brandService.update(entity, id), HttpStatus.OK);
+    public ResponseEntity<Brand> update(@RequestBody BrandDTO entity, @PathVariable Long id) {
+        Brand newBrand = brandMapperService.brandFromBrandDTO(entity);
+        return new ResponseEntity<>(brandService.update(newBrand, id), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")

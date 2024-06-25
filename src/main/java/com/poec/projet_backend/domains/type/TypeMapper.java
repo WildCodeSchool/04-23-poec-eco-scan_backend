@@ -1,5 +1,6 @@
 package com.poec.projet_backend.domains.type;
 
+import com.poec.projet_backend.exceptions.MappingConversionException;
 import com.poec.projet_backend.util.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,10 +24,25 @@ public class TypeMapper {
         return new TypeDTO(
                 type.getId(),
                 type.getName(),
+                type.getPictogram(),
                 imgService.loadImageAsBase64(type.getPictogram()),
                 type.getPoints(),
                 type.getDescription(),
                 type.getBins()
+        );
+    }
+
+    public static Type fromDTO(TypeDTO typeDTO) throws IOException {
+        if (typeDTO == null) {
+            return null;
+        }
+        return new Type(
+                typeDTO.getId(),
+                typeDTO.getName(),
+                typeDTO.getPathOfImage(),
+                typeDTO.getPoints(),
+                typeDTO.getDescription(),
+                typeDTO.getBins()
         );
     }
 
@@ -35,13 +51,14 @@ public class TypeMapper {
             return new TypeDTO(
                     inType.getId(),
                     inType.getName(),
+                    inType.getPictogram(),
                     imgService.loadImageAsBase64(inType.getPictogram()),
                     inType.getPoints(),
                     inType.getDescription(),
                     inType.getBins()
             );
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new MappingConversionException("Failed converting Type to TypeDTO: " + e.getMessage());
         }
     }
 
@@ -53,7 +70,7 @@ public class TypeMapper {
             }
             return typeDTOs;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new MappingConversionException("Failed converting TypeDTO to Type: " + e.getMessage());
         }
     }
 

@@ -13,11 +13,13 @@ public class BrandDTO {
     private String title;
     private String logo;
     private List<Promos> promos;
+    private String logoPath;
 
-    BrandDTO(Long id, String title, String logo, List<Promos> promos){
+    BrandDTO(Long id, String title, String logo, List<Promos> promos, String logoPath){
         this.id = id;
         this.title = title;
         this.logo = logo;
         this.promos = promos;
+        this.logoPath = logoPath;
     }
 }

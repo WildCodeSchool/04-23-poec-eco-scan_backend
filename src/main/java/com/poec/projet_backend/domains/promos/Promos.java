@@ -1,10 +1,13 @@
 package com.poec.projet_backend.domains.promos;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import com.poec.projet_backend.domains.brand.Brand;
 import com.poec.projet_backend.domains.brand.BrandDTO;
 import com.poec.projet_backend.domains.brand.BrandMapper;
+import com.poec.projet_backend.domains.userPromos.UserPromos;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +16,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -43,6 +47,15 @@ public class Promos {
     public BrandDTO getBrand() {
         try {
             return BrandMapper.toDTO(this.brand);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @JsonSetter("brand")
+    public void setBrand(BrandDTO brand) {
+        try {
+            this.brand = BrandMapper.fromDTO(brand);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -31,7 +31,6 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
 
     public Map<String, String> register(RegisterRequest request, HttpServletRequest httpRequest) throws UsernameAlreadyTakenException {
-        System.out.println(request.toString());
 
         if (loginRepository.findByEmail(request.getEmail()).isEmpty()) {
             var login = Login.builder()
@@ -49,6 +48,7 @@ public class AuthService {
                     .username(request.getUsername())
                     .lastname(request.getLastname())
                     .firstname(request.getFirstname())
+                    .imagePath(request.getImagePath())
                     .points(50)
                     .staged(staged)
                     .build();
@@ -95,7 +95,7 @@ public class AuthService {
             String jwtToken = jwtService.generateToken(new HashMap<>(extraClaims), user);
             return AuthResponse.builder()
                     .token(jwtToken)
-                    .message("Salut le bouffeur de graines!")
+                    .message("Bienvenue l'ami(e)")
                     .build();
 
         } catch (BadCredentialsException ex) {

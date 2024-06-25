@@ -3,25 +3,77 @@ USE poec_bdx_jwt;
 INSERT INTO staged (id) VALUES (1);
 INSERT INTO staged (id) VALUES (2);
 
-INSERT INTO user (staged_id, points, email, firstname, lastname, username) VALUES (1, 700, "admin@admin.com", "admin", "admin", "admin");
-INSERT INTO user (staged_id, points, email, firstname, lastname, username) VALUES (2, 1234, "user1@user1.com", "user", "user", "user");
+INSERT INTO user (staged_id, points, email, firstname, lastname, username, image_path) VALUES (1, 700, "admin@admin.com", "admin", "admin", "admin", "static/images/avatar/profil.png" );
+INSERT INTO user (staged_id, points, email, firstname, lastname, username, image_path) VALUES (2, 1234, "user1@user1.com", "user", "user", "user", "static/images/avatar/profil.png");
 
 
-INSERT INTO brand (logo, title) values ("static/images/logo/carrefour.png", "Carrefour");
-INSERT INTO brand (logo, title) values ("static/images/logo/monoprix.png", "Monoprix");
-INSERT INTO brand (logo, title) values ("static/images/logo/free.png", "Free");
+-- Inserts pour les marques
+INSERT INTO brand (logo, title) VALUES ("static/images/logo/carrefour.png", "Carrefour");
+INSERT INTO brand (logo, title) VALUES ("static/images/logo/monoprix.png", "Monoprix");
+INSERT INTO brand (logo, title) VALUES ("static/images/logo/free.png", "Free");
+INSERT INTO brand (logo, title) VALUES ("static/images/logo/leclerc.png", "Leclerc");
+INSERT INTO brand (logo, title) VALUES ("static/images/logo/fnac.png", "Fnac");
+INSERT INTO brand (logo, title) VALUES ("static/images/logo/orange.png", "Orange");
+INSERT INTO brand (logo, title) VALUES ("static/images/logo/sephora.png", "Sephora");
+INSERT INTO brand (logo, title) VALUES ("static/images/logo/hm.png", "H&M");
 
 
+-- Carrefour promotions
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (500, 20, 50, 1, "2024-12-31", "2024-06-01", "f1ece3", "Une bouteille de Coca-Cola", "Coca-Cola", "Coca-Cola 1L");
 
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 20, 100, 1, "2024-12-31", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 22, 100, 1, "2024-12-30", "2024-01-01", "FFFFFF", "A bottle of coke", "bisquits", "bisquits");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 27, 100, 1, "2024-12-29", "2024-01-01", "FFFFFF", "A paquet de cacahuète", "cacahuète", "cacahuète");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 15, 100, 2, "2024-12-28", "2024-01-01", "FFFFFF", "A bouteille de vin rouge", "Vin", "Vin");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 26, 100, 2, "2024-12-27", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 10, 100, 2, "2024-12-26", "2024-01-01", "FFFFFF", "A bottle of coke", "Coke", "Coke");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 33, 100, 3, "2024-12-25", "2024-01-01", "FFFFFF", "A nouvelle telephone", "iPhone", "iPhine ");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 44, 100, 3, "2024-12-24", "2024-01-01", "FFFFFF", "6 mois de wifi", "wifi", "6 mois de wifi");
-INSERT INTO promos(amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title) VALUES (1000, 55, 100, 3, "2024-12-23", "2024-01-01", "FFFFFF", "1 anne de Netflix", "Netflix", "Netflix");
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (300, 25, 80, 1, "2024-11-30", "2024-06-15", "d5e0db", "Un paquet de biscuits Granola", "Biscuits", "Granola Biscuits");
+
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (200, 30, 70, 1, "2024-10-29", "2024-07-01", "84baa0", "Un paquet de cacahuètes Ben & Hut", "Cacahuètes", "Ben & Hut Cacahuètes");
+
+-- Monoprix promotions
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (400, 15, 90, 2, "2024-12-15", "2024-06-20", "f1ece3", "Une bouteille de vin rouge", "Vin", "Vin Rouge Bordeaux");
+
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (250, 20, 60, 2, "2024-12-20", "2024-07-01", "d5e0db", "Une bouteille de Coca-Cola", "Coca-Cola", "Coca-Cola 1.5L");
+
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (150, 25, 70, 2, "2024-11-30", "2024-08-10", "84baa0", "Un téléphone portable basique", "Téléphone", "Téléphone Portable");
+
+-- Free promotions
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (300, 30, 50, 3, "2024-12-25", "2024-06-25", "f1ece3", "Un paquet de pâtes Barilla", "Pâtes", "Pâtes Barilla");
+
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (200, 35, 40, 3, "2024-12-30", "2024-07-01", "d5e0db", "Un paquet de riz Taureau Ailé", "Riz", "Riz Taureau Ailé");
+
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (100, 40, 60, 3, "2024-12-15", "2024-08-01", "84baa0", "Une boîte de thon Petit Navire", "Thon", "Thon Petit Navire");
+
+-- Leclerc promotions
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (350, 35, 80, 4, "2024-12-22", "2024-06-30", "f1ece3", "Un micro-ondes Samsung", "Micro-ondes", "Micro-ondes Samsung");
+
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (250, 40, 100, 4, "2024-12-20", "2024-07-05", "d5e0db", "Un aspirateur Dyson", "Aspirateur", "Aspirateur Dyson");
+
+-- Darty promotions
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (150, 45, 120, 5, "2024-12-20", "2024-07-10", "84baa0", "Une télévision LG", "Télévision", "Télévision LG");
+
+-- Orange promotions
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (200, 50, 70, 6, "2024-12-19", "2024-06-15", "f1ece3", "Un forfait mobile 50 Go", "Forfait", "Forfait 50 Go");
+
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (100, 55, 60, 6, "2024-12-18", "2024-07-01", "d5e0db", "Un abonnement internet fibre optique", "Internet", "Fibre Optique");
+
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (50, 60, 80, 6, "2024-12-17", "2024-07-15", "84baa0", "Un abonnement TV Canal+", "TV", "Abonnement Canal+");
+
+-- Ajout d'une promotion supplémentaire pour Orange
+INSERT INTO promos (amount, percent_off, price, brand_id, end_date, start_date, color, description, item, title)
+VALUES (300, 65, 90, 6, "2024-12-16", "2024-07-20", "f1ece3", "Un téléphone iPhone", "iPhone", "iPhone 12");
+
+
 
 
 
@@ -54,31 +106,31 @@ INSERT INTO bin (type_id, bin_name, localisation) VALUES (3, "Free Telephones", 
 --wild code school bins
 INSERT INTO bin (type_id, bin_name, localisation) VALUES (1, null, "44.869335,-0.565646");
 INSERT INTO bin (type_id, bin_name, localisation) VALUES (2, null, "44.869335,-0.565646");
-INSERT INTO bin (type_id, bin_name, localisation) VALUES (2, null, "44.869335,-0.565646");
+INSERT INTO bin (type_id, bin_name, localisation) VALUES (3, null, "44.869335,-0.565646");
 INSERT INTO bin (type_id, bin_name, localisation) VALUES (4, null, "44.869335,-0.565646");
 INSERT INTO bin (type_id, bin_name, localisation) VALUES (5, null, "44.869335,-0.565646");
 --INSERT INTO bin (type_id, bin_name, localisation) VALUES (6, null, "44.869335,-0.565646");
 
 
 
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 5);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 6);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2);
-INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4);
---INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
---INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1); --deposited 1
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1); --deposited 2
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 1); --staged    3
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --staged    4
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --          5
+INSERT INTO rubbish (is_depot, type_id) VALUES (true, 3); --          6
+--INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3); --staged    7
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4); --          8
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 5); --staged    9
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 6); --staged   10
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --         11
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --         12
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --         13
+--INSERT INTO rubbish (is_depot, type_id) VALUES (false, 3); --         14
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 2); --         15
+INSERT INTO rubbish (is_depot, type_id) VALUES (false, 4); --         16
+--INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);  --         17
+--INSERT INTO rubbish (is_depot, type_id) VALUES (true, 7);  --         18
 
 
 
@@ -87,7 +139,7 @@ INSERT INTO deposit (bin_id, rubbish_id, user_id, scan_data) VALUES (1, 2, 2, "{
 
 
 INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (4,2);
-INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (7,2);
+--INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (7,2);
 INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (9,2);
 INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (3,2);
 INSERT INTO staged_rubbish (rubbish_id, staged_id) VALUES (10,2);

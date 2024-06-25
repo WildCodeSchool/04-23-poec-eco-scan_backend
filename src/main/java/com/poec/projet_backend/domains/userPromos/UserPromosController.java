@@ -1,6 +1,7 @@
 package com.poec.projet_backend.domains.userPromos;
 
 import com.poec.projet_backend.domains.AbstractController;
+import com.poec.projet_backend.exceptions.NotEnoughPointsExcept;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +24,8 @@ public class UserPromosController extends AbstractController<UserPromos> {
 
         Long userId = userPromosDTO.getUserId();
         Long promoId = userPromosDTO.getPromoId();
-
-        try {
             UserPromos newUserPromo = userPromosService.addPromoToUser(userId, promoId);
             return ResponseEntity.ok(newUserPromo);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(null);
-        }
+
     }
 }
