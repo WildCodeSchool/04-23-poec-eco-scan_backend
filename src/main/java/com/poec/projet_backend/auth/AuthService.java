@@ -31,7 +31,6 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
 
     public Map<String, String> register(RegisterRequest request, HttpServletRequest httpRequest) throws UsernameAlreadyTakenException {
-        System.out.println(request.toString());
 
         if (loginRepository.findByEmail(request.getEmail()).isEmpty()) {
             var login = Login.builder()

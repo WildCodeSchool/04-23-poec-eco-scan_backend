@@ -21,7 +21,6 @@ public class StagedController extends AbstractController<Staged> {
 
     @PostMapping("/add/{stagedId}")
     public ResponseEntity<Staged> addRubbishToStaged(@PathVariable Long stagedId, @RequestBody Rubbish rubbish) {
-        System.out.println(rubbish);
         Staged updatedStaged = stagedService.addRubbishToStaged(stagedId, rubbish);
         if (updatedStaged != null) {
             return ResponseEntity.ok(updatedStaged);

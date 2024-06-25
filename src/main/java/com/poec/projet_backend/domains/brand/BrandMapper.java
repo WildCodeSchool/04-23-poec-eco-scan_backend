@@ -45,7 +45,6 @@ public class BrandMapper {
 
     public BrandDTO brandToBrandDTO(Brand inBrand) {
         try {
-            System.out.println(inBrand);
 
             return new BrandDTO(
                     inBrand.getId(),
@@ -73,7 +72,6 @@ public class BrandMapper {
 
     public Brand brandFromBrandDTO(BrandDTO brandDTO) {
         try {
-            System.out.println(brandDTO);
             return new Brand(
                     brandDTO.getId(),
                     brandDTO.getTitle(),
