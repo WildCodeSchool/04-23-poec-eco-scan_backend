@@ -2,8 +2,6 @@ package com.poec.projet_backend.domains.userImpl;
 
 import com.poec.projet_backend.auth.AuthService;
 import com.poec.projet_backend.domains.AbstractService;
-import com.poec.projet_backend.domains.deposit.Deposit;
-import com.poec.projet_backend.domains.login.Login;
 import com.poec.projet_backend.domains.staged.Staged;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -33,7 +31,6 @@ public class UserImplService extends AbstractService<UserImpl, Long> {
 
     @Override
     public UserImpl add(UserImpl entity) {
-        System.out.println(entity);
         if (entity.getStaged() == null) {
             Staged staged = new Staged();
             entity.setStaged(staged);
