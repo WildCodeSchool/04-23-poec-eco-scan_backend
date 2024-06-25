@@ -3,6 +3,7 @@ package com.poec.projet_backend.domains.promos;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import com.poec.projet_backend.domains.brand.Brand;
 import com.poec.projet_backend.domains.brand.BrandDTO;
 import com.poec.projet_backend.domains.brand.BrandMapper;
@@ -51,7 +52,12 @@ public class Promos {
         }
     }
 
-    @OneToMany(mappedBy = "promos", cascade = CascadeType.REMOVE)
-    @JsonIgnore
-    private List<UserPromos> userPromos;
+    @JsonSetter("brand")
+    public void setBrand(BrandDTO brand) {
+        try {
+            this.brand = BrandMapper.fromDTO(brand);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
