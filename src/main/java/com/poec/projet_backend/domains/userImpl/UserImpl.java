@@ -29,10 +29,12 @@ public class UserImpl {
     private String lastname;
     private String email;
     private int points;
+    private String imagePath;
 
     public String toString() {
         return getUsername() + " " + getFirstname() + " " + getLastname() + " " + getEmail() + " " + getPoints();
     };
+
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("user")
